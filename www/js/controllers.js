@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('myFirstIonic1.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -50,18 +50,23 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'array object title property defined the second time', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 },
-    { title: 'new data from controller', id: 7 }
+.controller('MyStocksCtrl', ['$scope',
+function($scope) {
+  $scope.myStocksArray = [
+    { ticker: 'INTC' },
+    { ticker: 'MSFT' },
+    { ticker: 'SBUX' },
+    { ticker: 'EWU' },
+    { ticker: 'SPY' },
+    { ticker: 'IWM' },
+    { ticker: 'FB' },
+    { ticker: 'AAPL' },
+    { ticker: 'YUM' },
+    { ticker: 'NFLX' }
   ];
-})
+}])
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-  $scope.dynamicViewTitleFromStateParam = $stateParams.id;
-});
+.controller('StockCtrl', ['$scope', '$stateParams',
+function($scope, $stateParams) {
+  $scope.ticker = $stateParams.stockTicker;
+}]);
